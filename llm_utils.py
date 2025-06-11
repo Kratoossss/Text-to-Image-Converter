@@ -2,42 +2,22 @@ import os
 import base64
 import requests
 import certifi
-import streamlit as st
-from llama_cpp import Llama
-
-# Load the Llama language model once at the start (adjust the model path as needed)
-llm = Llama(model_path="D:/ai-test/models/llama-2-7b.Q4_K_M.gguf")
-
-def expand_prompt(prompt: str) -> str:
-    """
-    Expands a short prompt into a detailed, vivid description using the Llama language model.
-    Args:
-        prompt (str): The user's short prompt.
-    Returns:
-        str: The expanded, detailed prompt.
-    """
-    system_prompt = (
-        "You are a creative assistant. Expand the following prompt into a vivid, detailed, artistic description for image generation.\n"
-        "Prompt: "
-    )
-    full_prompt = system_prompt + prompt + "\nExpanded:"
-    output = llm(full_prompt, max_tokens=128)
-    return output["choices"][0]["text"].strip()
 
 def generate_image(prompt: str) -> str:
     """
-    Sends the expanded prompt to the Stability AI API to generate an image.
+    Sends the prompt to the Stability AI API to generate an image.
     Args:
-        prompt (str): The expanded prompt for image generation.
+        prompt (str): The prompt for image generation.
     Returns:
         str: The file path to the saved generated image.
     Raises:
         ValueError: If the API key is missing or no image data is found in the response.
     """
-    # Get the Stability API key from environment variables
+    import streamlit as st
+    # Get the Stability API key from Streamlit secrets (for Streamlit Cloud)
     api_key = st.secrets["STABILITY_API_KEY"]
     if not api_key:
-        raise ValueError("STABILITY_API_KEY is not set. Please set it in your environment.")
+        raise ValueError("STABILITY_API_KEY is not set. Please set it in Streamlit Cloud secrets.")
 
     # API endpoint and headers
     url = "https://api.stability.ai/v2beta/stable-image/generate/core"
