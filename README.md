@@ -90,7 +90,6 @@ See `requirements.txt` for all Python dependencies.
 
 - Python >=3.8, <3.12
 - streamlit
-- llama-cpp-python
 - requests
 - certifi
 
