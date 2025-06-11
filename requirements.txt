@@ -1,9 +1,6 @@
 # Streamlit for the web UI
 streamlit
 
-# Llama-cpp-python for running the Llama language model
-llama-cpp-python
-
 # Requests for making HTTP requests to the Stability AI API
 requests
 
