@@ -2,6 +2,7 @@ import os
 import base64
 import requests
 import certifi
+import streamlit as st
 from llama_cpp import Llama
 
 # Load the Llama language model once at the start (adjust the model path as needed)
@@ -34,7 +35,7 @@ def generate_image(prompt: str) -> str:
         ValueError: If the API key is missing or no image data is found in the response.
     """
     # Get the Stability API key from environment variables
-    api_key = os.getenv("STABILITY_API_KEY")
+    api_key = st.secrets["STABILITY_API_KEY"]
     if not api_key:
         raise ValueError("STABILITY_API_KEY is not set. Please set it in your environment.")
 
