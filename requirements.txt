@@ -1,0 +1,15 @@
+# Python version required for this project
+python>=3.8,<3.12
+
+# Streamlit for the web UI
+streamlit
+
+# Llama-cpp-python for running the Llama language model
+llama-cpp-python
+
+# Requests for making HTTP requests to the Stability AI API
+requests
+
+# Certifi for SSL certificate validation (used by requests)
+certifi
+
