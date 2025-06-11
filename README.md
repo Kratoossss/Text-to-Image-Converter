@@ -18,10 +18,12 @@ PromptToImage Converter is a Streamlit web application that allows users to gene
 ai-test/
 │
 ├── app/
-│   └── main.py            # Streamlit app code
-├── llm_utils.py           # Llama prompt expansion and image generation utilities
+│   ├── main.py            # Streamlit app code
+│   └── llm_utils.py       # Llama image generation utilities
 ├── requirements.txt       # Python dependencies
 └── README.md              # Project documentation
+
+
 ```
 
 ---
