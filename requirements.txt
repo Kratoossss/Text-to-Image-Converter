@@ -1,6 +1,3 @@
-# Python version required for this project
-python>=3.8,<3.12
-
 # Streamlit for the web UI
 streamlit
 
